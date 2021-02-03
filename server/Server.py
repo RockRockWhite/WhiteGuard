@@ -2,6 +2,7 @@ import socket
 import threading
 from FiveTumple import FiveTumple
 from DataProcesser import DataProcesser
+import copy
 
 
 class Server:
@@ -106,6 +107,7 @@ class Server:
                 addr,
             )
         )
+
         self.five_tumple_cnt += 1
 
     def get_five_tumple_cnt(self):
@@ -113,9 +115,9 @@ class Server:
         cnt = self.five_tumple_cnt
         self.five_tumple_cnt = 0
         return cnt
-    
+
     def get_tumple_dict(self):
-        dict = self.five_tumple_dict
+        dict = copy.deepcopy(self.five_tumple_dict)
         self.five_tumple_dict.clear()
         return dict
 

@@ -23,8 +23,9 @@ def web_server_threading():
 def update():
     """更新网页信息"""
     # 更新流量信息
-    cnt = server.get_five_tumple_cnt()
-    web_server.set_flow_list(cnt)
+    tumple_dict = server.get_tumple_dict()
+    web_server.calculate_five_tumple(tumple_dict)
+    print(tumple_dict)
 
 
 def main():
