@@ -1,11 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="4778ac5a-41db-4ec7-8304-bd75f9498d97" name="默认的" comment="" />
+    <list default="true" id="4778ac5a-41db-4ec7-8304-bd75f9498d97" name="默认的" comment="">
+      <change beforePath="$PROJECT_DIR$/server/WebServer.py" beforeDir="false" afterPath="$PROJECT_DIR$/server/WebServer.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/server/main.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="1nvpJaTyMg3LCCzlgv3dlZoHShD" />
   <component name="ProjectViewState">
@@ -50,6 +56,7 @@
       <option name="presentableId" value="Default" />
       <updated>1612280351851</updated>
       <workItem from="1612280353732" duration="18000" />
+      <workItem from="1612343673758" duration="10000" />
     </task>
     <servers />
   </component>
