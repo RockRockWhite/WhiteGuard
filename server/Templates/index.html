@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="refresh" content="5">
+
+    <title>WhiteGuard 流量监测</title>
+    <!--引入js-->
+    <script src="{{ url_for('static',filename = 'echarts.js') }}"></script>
+</head>
+
+<body>
+    <h1>WhiteGuard</h1>
+    <h2>分布式流量监测系统</h2>
+    <form action="" method="GET">
+        <div>
+            <label>当前在线主机:</label>
+            <select name="selected">
+                <option value="192.168.3.10">192.168.3.10</option>
+                {{option_values}}
+            </select>
+        </div>
+
+        <div>
+            <label>统计时周期:</label>
+            <input type="text" placeholder="10">
+        </div>
+
+        <div>
+            <input type="submit" value="监测">
+        </div>
+
+    </form>
+
+    <h3>包流量统计</h3>
+    <div id="in" style="width: 600px;height: 400px;"></div>
+
+    <h3>数据量统计</h3>
+    <div id="out" style="width: 600px;height: 400px;"></div>
+
+    <!--脚本操作部分-->
+
+    <script type="text/javascript">
+        // 创建表格
+        var inChart = echarts.init(document.getElementById("in"));
+        var outChart = echarts.init(document.getElementById("out"));
+
+        // 设置数据
+        inChart.setOption({{ in_options | safe}});
+        outChart.setOption({{ out_options | safe}});
+    </script>
+</body>
+
+</html>

@@ -77,6 +77,19 @@ def index():
     return render_template("index.html", in_options=line_in.dump_options(), out_options=line_out.dump_options())
 
 
+@app.route("/flash")
+def flash():
+    while True:
+        xaxis = []
+        for i in range(60):
+            xaxis.append(str(-i))
+
+        line_in = Line().add_xaxis(xaxis[::-1]).add_yaxis("入包流量", in_cnt["total"]).add_yaxis("出包流量", out_cnt["total"])
+
+        line_out = Line().add_xaxis(xaxis[::-1]).add_yaxis("主机1", out_cnt["total"])
+        return render_template("index.html", in_options=line_in.dump_options(), out_options=line_out.dump_options())
+
+
 def main():
     """主函数"""
     print("")
