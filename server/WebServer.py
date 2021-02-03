@@ -71,11 +71,9 @@ def index():
     for i in range(60):
         xaxis.append(str(-i))
 
-    line_in = Line().add_xaxis(xaxis[::-1]).add_yaxis("主机1", in_cnt["total"]).set_global_opts(
-        title_opts=opts.TitleOpts(title="Bar-基本示例", subtitle="AB数据对比"))
+    line_in = Line().add_xaxis(xaxis[::-1]).add_yaxis("入包流量", in_cnt["total"]).add_yaxis("出包流量", out_cnt["total"])
 
-    line_out = Line().add_xaxis(xaxis[::-1]).add_yaxis("主机1", out_cnt["total"]).set_global_opts(
-        title_opts=opts.TitleOpts(title="Bar-基本示例", subtitle="AB数据对比"))
+    line_out = Line().add_xaxis(xaxis[::-1]).add_yaxis("主机1", out_cnt["total"])
     return render_template("index.html", in_options=line_in.dump_options(), out_options=line_out.dump_options())
 
 
