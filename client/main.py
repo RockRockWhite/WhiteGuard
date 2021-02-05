@@ -2,9 +2,8 @@ import threading
 from Sniff import Sniffer
 from Client import *
 
-
-
 closed = False
+
 
 def handle_input(client, data_processer):
     while True:
@@ -56,16 +55,16 @@ def main():
                 break
         # 抓包
         sniffer = Sniffer()
-        ip_src, ip_dst, proto, sport, dport = sniffer.sniff_once()
+        ip_src, ip_dst, proto, sport, dport, length = sniffer.sniff_once()
 
         # 过滤ICMP协议和非IP协内容
         if proto == "ICMP" or proto == "":
             continue
         print(
-            "五元组 {2} {0}:{3}\t->\t{1}:{4}\t".format(ip_src, ip_dst, proto, sport, dport)
+            "五元组 {2} {0}:{3}\t->\t{1}:{4}\tlenght:{5}".format(ip_src, ip_dst, proto, sport, dport, length), end="\t"
         )
         five_temple_data = data_processer.five_tumple(
-            addr, ip_src, ip_dst, proto, sport, dport
+            addr, ip_src, ip_dst, proto, sport, dport, length
         )
         client.send_data(five_temple_data)
         # 等待OK返回

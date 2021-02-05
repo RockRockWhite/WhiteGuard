@@ -18,8 +18,9 @@
         <div>
             <label>当前在线主机:</label>
             <select name="selected">
-                <option value="192.168.3.10">192.168.3.10</option>
-                {{option_values}}
+                {% for ip in in_dict %}
+                <option value={{ip}}>{{ip}}</option>
+                {% endfor %}
             </select>
         </div>
 

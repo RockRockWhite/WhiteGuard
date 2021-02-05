@@ -59,13 +59,15 @@ class Server:
                     """处理五元组"""
                     self.five_tumple(client_socket, request_dict)
 
-                """ 用作测试 查看收到的内容,必要时候再打开
+                # 用作测试 查看收到的内容,必要时候再打开
+                '''
                 if request:
-                print(
-                    "A new data from {0} data:\n\n{1}\n\n".format(
-                        addr[0], request.decode("utf-8")
+                    print(
+                        "A new data from {0} data:\n\n{1}\n\n".format(
+                            addr[0], request.decode("utf-8")
+                        )
                     )
-                )"""
+                '''
         client_socket.close()
         print("客户端 {} 断开连接.`".format(addr[0]))
 
@@ -95,16 +97,18 @@ class Server:
             request_dict["Sport"],
             request_dict["Ip_dst"],
             request_dict["Dport"],
+            request_dict["Len"]
         )
         self.add_tumple(addr, five_tumple)
         print(
-            "接收到客户端 {5} 发来的五元组 \t{2}\t{0}:{1}\t->\t{3}:{4}\t".format(
+            "接收到客户端 {5} 发来的五元组 \t{2}\t{0}:{1}\t->\t{3}:{4}\tlength:{6}".format(
                 five_tumple.Ip_src,
                 five_tumple.Sport,
                 five_tumple.Proto,
                 five_tumple.Ip_dst,
                 five_tumple.Dport,
                 addr,
+                five_tumple.Len
             )
         )
 

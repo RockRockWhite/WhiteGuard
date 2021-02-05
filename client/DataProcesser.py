@@ -1,4 +1,4 @@
-"""02.01 11:50"""
+"""02.05 16:04"""
 
 import re
 
@@ -48,7 +48,7 @@ class DataProcesser:
         data += "\n"
         return data
 
-    def five_tumple(self, Addr, ip_src, ip_dst, proto, Sport, Dport):
+    def five_tumple(self, Addr, ip_src, ip_dst, proto, Sport, Dport, Len):
         """
         POST WhiteGuard
         Addr: 192.168.1.1
@@ -58,6 +58,8 @@ class DataProcesser:
         Sport: 443
         Ip_dst: 192.168.199.2
         Dport: 53
+        Len: 128
+
         """
         data = "POST WhiteGuard"
         data += "\nAddr: "
@@ -73,6 +75,8 @@ class DataProcesser:
         data += ip_dst
         data += "\nDport: "
         data += str(Dport)
+        data += "\nLen: "
+        data += str(Len)
         data += "\n"
         return data
 

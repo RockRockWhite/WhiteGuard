@@ -9,6 +9,7 @@ class Sniffer:
 
     def sniff_once(self):
         dpkt = sniff(count=1)
+        length = len(dpkt[0])
         if str(dpkt[0][Ether].type) == "2048":
             ip_src = dpkt[0][IP].src
             ip_dst = dpkt[0][IP].dst
@@ -28,6 +29,6 @@ class Sniffer:
                 sport = 0
                 dport = 0
 
-            return ip_src, ip_dst, proto, sport, dport
+            return ip_src, ip_dst, proto, sport, dport, length
         else:
-            return "", "", "", 0, 0
+            return "", "", "", 0, 0, 0

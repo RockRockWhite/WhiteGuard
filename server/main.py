@@ -25,7 +25,6 @@ def update():
     # 更新流量信息
     tumple_dict = server.get_tumple_dict()
     web_server.calculate_five_tumple(tumple_dict)
-    print(tumple_dict)
 
 
 def main():
