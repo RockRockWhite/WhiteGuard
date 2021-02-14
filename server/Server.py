@@ -2,6 +2,7 @@ import socket
 import threading
 from FiveTumple import FiveTumple
 from DataProcesser import DataProcesser
+from Sql import Mysql
 import copy
 
 
@@ -20,6 +21,8 @@ class Server:
         self.five_tumple_dict = {}
         # 初始化保存五元组数量的字典
         self.five_tumple_cnt = 0
+        # 初始化mysql
+        self.mysql = Mysql()
 
     def start(self):
         """接收客户端请求"""
@@ -68,6 +71,7 @@ class Server:
                         )
                     )
                 '''
+
         client_socket.close()
         print("客户端 {} 断开连接.`".format(addr[0]))
 
@@ -99,6 +103,9 @@ class Server:
             request_dict["Dport"],
             request_dict["Len"]
         )
+        time = request_dict["Time"]
+        # 数据入库
+        self.mysql.insert(addr,five_tumple, time)
         self.add_tumple(addr, five_tumple)
         print(
             "接收到客户端 {5} 发来的五元组 \t{2}\t{0}:{1}\t->\t{3}:{4}\tlength:{6}".format(

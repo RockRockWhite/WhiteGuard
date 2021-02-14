@@ -1,6 +1,7 @@
-"""02.05 16:04"""
+"""02.14 22:34"""
 
 import re
+from datetime import datetime
 
 
 class DataProcesser:
@@ -59,7 +60,7 @@ class DataProcesser:
         Ip_dst: 192.168.199.2
         Dport: 53
         Len: 128
-
+        Time: 2021-02-14 22:30:59
         """
         data = "POST WhiteGuard"
         data += "\nAddr: "
@@ -77,6 +78,9 @@ class DataProcesser:
         data += str(Dport)
         data += "\nLen: "
         data += str(Len)
+        data += "\nTime: "
+        time = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+        data += time
         data += "\n"
         return data
 

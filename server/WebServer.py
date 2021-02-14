@@ -99,7 +99,7 @@ def index():
 
     line_len = Line().add_xaxis(xaxis[::-1]).add_yaxis("入包长度", in_len).add_yaxis("出包长度", out_len)
     return render_template("index.html", in_options=line_cnt.dump_options(), out_options=line_len.dump_options(),
-                           in_dict=in_cnt)
+                           in_dict=in_cal)
 
 
 def main():
